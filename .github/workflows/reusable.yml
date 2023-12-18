@@ -1,0 +1,25 @@
+name: Reusable Hello
+
+on:
+  workflow_call:
+    inputs:
+
+      SAY_HELLO:
+        default: true
+        type: boolean
+
+      HELLO_RECIPIENT:
+        default: world
+        type: string
+
+jobs:
+
+  hello:
+    name: Hello
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Say hello
+        if:  ${{ inputs.SAY_HELLO == true }}
+        run: |
+          echo "hello ${{ inputs.HELLO_RECIPIENT }}"
