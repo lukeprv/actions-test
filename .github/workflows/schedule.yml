@@ -1,0 +1,14 @@
+name: Scheduled Hello
+
+on:
+  schedule:
+    - cron: '35 10,22 * * *'
+
+jobs:
+
+  hello:
+    name: Say hello
+    uses: ./.github/workflows/reusable.yml
+    with:
+      SAY_HELLO: true
+      HELLO_RECIPIENT: "scheduled world"

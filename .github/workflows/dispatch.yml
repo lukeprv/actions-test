@@ -17,11 +17,8 @@ on:
 jobs:
 
   hello:
-    name: Hello
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Say hello
-        if:  ${{ inputs.SAY_HELLO == true }}
-        run: |
-          echo "hello ${{ inputs.HELLO_RECIPIENT }}"
+    name: Say hello
+    uses: ./.github/workflows/reusable.yml
+    with:
+      SAY_HELLO: ${{ inputs.SAY_HELLO }}
+      HELLO_RECIPIENT: ${{ inputs.HELLO_RECIPIENT }}

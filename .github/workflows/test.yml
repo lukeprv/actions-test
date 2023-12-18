@@ -7,12 +7,7 @@ on:
     branches: [main]
 
 jobs:
-    
-  test-job:
-    name: Test Job
-    runs-on: ubuntu-latest
-    steps:
 
-      - name: Test Step
-        run: |
-          echo "hello world"
+  hello:
+    name: Say hello
+    uses: ./.github/workflows/reusable.yml
